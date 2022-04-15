@@ -13,7 +13,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: var(--primary-dark);
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 0.25fr 6.75fr;
 }
 .header {
     background-color: var(--primary-light);
@@ -25,7 +25,7 @@ body {
     background-color: var(--secondary-light);
     padding: 1rem 0;
     display: grid;
-    grid-template-rows: .25fr 2fr;
+    grid-template-rows: 0.25fr 1fr;
     justify-content: center;
     outline: solid red;
 }
@@ -37,4 +37,74 @@ body {
     font-size: 1.5rem;
     border-radius: 15px;
     border: none;
+    justify-self: center;
+}
+.form-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* visibility: hidden; */
+    outline: solid red;
+}
+fieldset {
+    padding: 1.5rem 2rem 1.5rem 1rem;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+legend {
+    padding-top: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.textbox {
+    border-radius: 7.5px;
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    height: 2.5rem;
+    width: 25rem;
+}
+.textbox > input {
+    padding-left: 1rem;
+}
+.checkbox-container {
+    display: grid;
+    grid-template-columns: auto 1rem;
+    gap: .75rem;
+    align-items: center;
+}
+.checkbox-container > label {
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+#status {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--secondary-light);
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-top: 0.25rem;
+    border: 1px solid var(--primary-dark);
+    border-radius: 5px;
+    transform: translateY(-0.075rem);
+    display: grid;
+    place-content: center;
+}
+#status:before {
+    content: "";
+    width: 0.65rem;
+    height: 0.65rem;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1rem 1rem var(--primary-dark);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);;
+}
+#status:checked::before {
+    transform: scale(1);
 }
