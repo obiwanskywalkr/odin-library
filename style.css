@@ -1,4 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+}
+:root {
+    --primary-light: #f8fafc;
+    --secondary-light: #f1f5f9;
+    --primary-dark: #0f172a;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-dark);
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+.header {
+    background-color: var(--primary-light);
+    padding: 2rem 2rem;
+    font-size: 2rem;
+    outline: solid red;
+}
+.main {
+    background-color: var(--secondary-light);
+    padding: 1rem 0;
+    display: grid;
+    grid-template-rows: .25fr 2fr;
+    justify-content: center;
+    outline: solid red;
+}
+#addBook {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    width: 10rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    border: none;
 }
