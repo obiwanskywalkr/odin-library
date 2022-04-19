@@ -15,7 +15,7 @@
     <div class="main">
         <button id="addBook">+ add book</button>
         <div class="library"></div>
-        <div class="form-modal">
+        <div id="formModal" class="form-modal"> 
             <form action="" method="post" id="bookForm">
                 <fieldset>
                     <legend>Add Book</legend>
@@ -26,16 +26,17 @@
                           <input type="text" name="book_author" class="textbox" id="author" placeholder="Author" maxlength="50" required>
                       </div>
                       <div class="textbox">
-                          <input type="number" name="page_count" class="textbox" id="pages" placeholder="Pages" min="1" max="5000" required>
+                          <input type="number" name="page_count" class="textbox" id="pages" placeholder="Pages" min="1" max="5000">
                       </div>
                       <div class="checkbox-container">
                           <label for="status">Have you read it?</label>
                           <input type="checkbox" name="status" id="status">
                       </div>
-                      <button type="submit" value="submit">Submit</button>
+                      <button id="submit">Submit</button>
                 </fieldset>
             </form>
         </div>
+        <div id="overlay" class="overlay"></div>
     </div>
     <!-- <footer>Made by...</footer> -->
 <script src="./script.js"></script>
