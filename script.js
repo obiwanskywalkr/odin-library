@@ -8,8 +8,11 @@ class Book {
         this.status = status;
     }
 
-    info() {
+    displayInfo() {
         return (`${this.title} by ${this.author}, ${this.pages} pages, ${this.status}`);
+    }
+    changeReadStatus() {
+        
     }
 }
 
@@ -19,32 +22,51 @@ function addBookToLibrary() {
     let pages = document.getElementById('pages').value;
     let status = document.getElementById('status').checked;
 
-    let currentBook = new Book(title, author, pages, status);
-   
-    myLibrary.push(currentBook);
+    myLibrary.push(new Book(title, author, pages, status));
 }
 
-function displayBooks() {
-
+function displayLibrary() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        
+    }
 }
 
-const addBook = document.getElementById('addBook');
-const formModal = document.getElementById('formModal')
-const overlay = document.getElementById('overlay')
-addBook.addEventListener('click', () => {
-    overlay.classList.add('display');
-    formModal.classList.add('active');
+const addBookButton = document.getElementById('addBookButton');
+const libraryContainer = document.getElementById('libraryContainer');
+const formOverlay = document.getElementById('formOverlay');
+const formModal = document.getElementById('formModal');
+const newBookForm = document.getElementById('newBookForm');
+const submitButton = document.getElementById('submitButton');
+
+function closeForm() {
+    formOverlay.classList.remove('displayOverlay');
+    formModal.classList.remove('displayForm');
+}
+
+function displayForm() {
+    formOverlay.classList.add('displayOverlay');
+    formModal.classList.add('displayForm');
+}
+
+addBookButton.addEventListener('click', () => {
+    displayForm();
 });
-overlay.addEventListener('click', () => {
-    overlay.classList.remove('display');
-    formModal.classList.remove('active');
+
+formOverlay.addEventListener('click', () => {
+    closeForm()
+    newBookForm.reset();
 });
-const submit = document.getElementById('submit');
-submit.addEventListener('click', addBookToLibrary());
+
+submitButton.addEventListener('click',(e) => {
+    e.preventDefault();
+    addBookToLibrary();
+    closeForm();
+    newBookForm.reset();
+    displayLibrary();
+});
 
 // psuedo code
 // when addBook is clicked =>
-//      clear values from form
 //      display new book modal
 // when submit is clicked - addBookToLibrary()
 //      get data from form
@@ -52,4 +74,9 @@ submit.addEventListener('click', addBookToLibrary());
 //      store new book in myLibrary[]
 //      clear data from form
 //      close modal
-// create card with new book - displayBooks()
+// create card with with books in myLibrary - displayLibrary()
+//      for each book =>
+//      create book card
+//      add book attributes to card
+//      add classes for styling
+//      append DOM

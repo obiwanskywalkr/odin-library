@@ -9,21 +9,19 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="header">
-        <h2>library</h2>
-    </div>
+    <div class="header">Library</div>
     <div class="main">
-        <button id="addBook">+ add book</button>
-        <div class="library"></div>
-        <div id="formModal" class="form-modal"> 
-            <form action="" method="post" id="bookForm">
+        <button id="addBookButton"><strong>+</strong> add book</button>
+        <div id="libraryContainer"></div>
+        <div id="formModal" class="formModal"> 
+            <form action="" method="post" id="newBookForm">
                 <fieldset>
                     <legend>Add Book</legend>
                       <div class="textbox">
-                        <input type="text" name="book_title" class="textbox" id="title" placeholder="Title" maxlength="100" required>
+                        <input type="text" name="book_title" class="textbox" id="title" placeholder="Title" maxlength="100">
                       </div>
                       <div class="textbox">
-                          <input type="text" name="book_author" class="textbox" id="author" placeholder="Author" maxlength="50" required>
+                          <input type="text" name="book_author" class="textbox" id="author" placeholder="Author" maxlength="50">
                       </div>
                       <div class="textbox">
                           <input type="number" name="page_count" class="textbox" id="pages" placeholder="Pages" min="1" max="5000">
@@ -32,13 +30,13 @@
                           <label for="status">Have you read it?</label>
                           <input type="checkbox" name="status" id="status">
                       </div>
-                      <button id="submit">Submit</button>
+                      <button id="submitButton">Submit</button>
                 </fieldset>
             </form>
         </div>
-        <div id="overlay" class="overlay"></div>
+        <div id="formOverlay" class="formOverlay"></div>
     </div>
-    <!-- <footer>Made by...</footer> -->
+    <!-- <div class="footer">Created by obiwanskywalkr</div> -->
 <script src="./script.js"></script>
 </body>
 </html>
