@@ -6,7 +6,7 @@
 }
 :root {
     --primary-light: #f8fafc;
-    --secondary-light: #f1f5f9;
+    --secondary-light: #e2e8f0;
     --primary-dark: #0f172a;
     font-family: 'Roboto', sans-serif;
     font-size: calc(.75em + 0.5vw);
@@ -42,19 +42,43 @@ body {
     cursor: pointer;
 }
 #libraryContainer {
-    width: 100vw;
+    width: 80vw;
     padding: 2rem 0rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-auto-flow: row;
-    gap: 10%;
+    gap: 5%;
     justify-items: center;
 }
 .card {
+    background-color: var(--primary-light);
     width: 20rem;
-    height: 20rem;
+    height: 22rem;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.cardText {
+    font-size: 1.5rem;
+}
+.statusBox {
     background-color: red;
+    border: none;
+    border-radius: 12.5px;
+    width: 15rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+}
+.removeBookButton {
+    background-color: var(--secondary-light);
+    border: none;
+    border-radius: 12.5px;
+    width: 15rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
 }
 .formModal {
     background-color: var(--secondary-light);
