@@ -25,9 +25,37 @@ function addBookToLibrary() {
     myLibrary.push(new Book(title, author, pages, status));
 }
 
-function displayLibrary() {
+async function displayLibrary() {
+    await addBookToLibrary();
     for (let i = 0; i < myLibrary.length; i++) {
-        
+        let card = document.createElement('div');
+        card.classList.add('card');
+        libraryContainer.appendChild(card);
+
+        let titleContainer = document.createElement('div');
+        titleContainer.classList.add('cardText');
+        titleContainer.textContent = `"${myLibrary[i].title}"`;
+        card.appendChild(titleContainer);
+
+        let authorContainer = document.createElement('div');
+        authorContainer.classList.add('cardText');
+        authorContainer.textContent = myLibrary[i].author;
+        card.appendChild(authorContainer);
+
+        let pagesContainer = document.createElement('div');
+        pagesContainer.classList.add('cardText');
+        pagesContainer.textContent = `${myLibrary[i].pages} pages`;
+        card.appendChild(pagesContainer);
+
+        let statusContainer = document.createElement('button');
+        statusContainer.classList.add('statusBox');
+        statusContainer.textContent = myLibrary[i].status;
+        card.appendChild(statusContainer);
+
+        let removeBookButton = document.createElement('button');
+        removeBookButton.classList.add('removeBookButton');
+        removeBookButton.textContent = "Remove Book"
+        card.appendChild(removeBookButton);
     }
 }
 
@@ -35,7 +63,7 @@ const addBookButton = document.getElementById('addBookButton');
 const libraryContainer = document.getElementById('libraryContainer');
 const formOverlay = document.getElementById('formOverlay');
 const formModal = document.getElementById('formModal');
-const newBookForm = document.getElementById('newBookForm');
+const BookForm = document.getElementById('bookForm');
 const submitButton = document.getElementById('submitButton');
 
 function closeForm() {
@@ -54,15 +82,14 @@ addBookButton.addEventListener('click', () => {
 
 formOverlay.addEventListener('click', () => {
     closeForm()
-    newBookForm.reset();
+    BookForm.reset();
 });
 
 submitButton.addEventListener('click',(e) => {
     e.preventDefault();
-    addBookToLibrary();
-    closeForm();
-    newBookForm.reset();
     displayLibrary();
+    closeForm();
+    BookForm.reset();
 });
 
 // psuedo code
