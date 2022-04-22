@@ -21,15 +21,17 @@ function addBookToLibrary() {
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
     let status = document.getElementById('status').checked;
-
+    
     myLibrary.push(new Book(title, author, pages, status));
 }
 
 async function displayLibrary() {
     await addBookToLibrary();
+
     for (let i = 0; i < myLibrary.length; i++) {
         let card = document.createElement('div');
         card.classList.add('card');
+        card.setAttribute('data-index', `${i}`)
         libraryContainer.appendChild(card);
 
         let titleContainer = document.createElement('div');
@@ -54,7 +56,7 @@ async function displayLibrary() {
 
         let removeBookButton = document.createElement('button');
         removeBookButton.classList.add('removeBookButton');
-        removeBookButton.textContent = "Remove Book"
+        removeBookButton.textContent = "Remove Book";
         card.appendChild(removeBookButton);
     }
 }
@@ -63,7 +65,7 @@ const addBookButton = document.getElementById('addBookButton');
 const libraryContainer = document.getElementById('libraryContainer');
 const formOverlay = document.getElementById('formOverlay');
 const formModal = document.getElementById('formModal');
-const BookForm = document.getElementById('bookForm');
+const bookForm = document.getElementById('bookForm');
 const submitButton = document.getElementById('submitButton');
 
 function closeForm() {
@@ -82,28 +84,12 @@ addBookButton.addEventListener('click', () => {
 
 formOverlay.addEventListener('click', () => {
     closeForm()
-    BookForm.reset();
+    bookForm.reset();
 });
 
 submitButton.addEventListener('click',(e) => {
     e.preventDefault();
     displayLibrary();
     closeForm();
-    BookForm.reset();
+    bookForm.reset();
 });
-
-// psuedo code
-// when addBook is clicked =>
-//      display new book modal
-// when submit is clicked - addBookToLibrary()
-//      get data from form
-//      call new Book constructor
-//      store new book in myLibrary[]
-//      clear data from form
-//      close modal
-// create card with with books in myLibrary - displayLibrary()
-//      for each book =>
-//      create book card
-//      add book attributes to card
-//      add classes for styling
-//      append DOM
