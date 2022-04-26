@@ -6,6 +6,7 @@ class Book {
         this.author = author;
         this.pages = pages;
         this.status = status;
+        this.index = myLibrary.length;
     }
 
     displayInfo() {
@@ -27,6 +28,8 @@ function addBookToLibrary() {
 
 async function displayLibrary() {
     await addBookToLibrary();
+
+    libraryContainer.innerHTML = '';
 
     for (let i = 0; i < myLibrary.length; i++) {
         let card = document.createElement('div');
@@ -57,6 +60,11 @@ async function displayLibrary() {
         let removeBookButton = document.createElement('button');
         removeBookButton.classList.add('removeBookButton');
         removeBookButton.textContent = "Remove Book";
+        removeBookButton.addEventListener('click', (e) => {
+            libraryContainer.removeChild(e.currentTarget.parentNode);
+            let currentIndex = e.currentTarget.parentNode.getAttribute('data-index');
+            myLibrary.splice(currentIndex, 1)
+        });
         card.appendChild(removeBookButton);
     }
 }
@@ -67,10 +75,13 @@ const formOverlay = document.getElementById('formOverlay');
 const formModal = document.getElementById('formModal');
 const bookForm = document.getElementById('bookForm');
 const submitButton = document.getElementById('submitButton');
+const removeBookButton = document.querySelector('.removeBookButton');
+
 
 function closeForm() {
     formOverlay.classList.remove('displayOverlay');
     formModal.classList.remove('displayForm');
+    bookForm.reset();
 }
 
 function displayForm() {
@@ -78,18 +89,12 @@ function displayForm() {
     formModal.classList.add('displayForm');
 }
 
-addBookButton.addEventListener('click', () => {
-    displayForm();
-});
+addBookButton.addEventListener('click', displayForm);
 
-formOverlay.addEventListener('click', () => {
-    closeForm()
-    bookForm.reset();
-});
+formOverlay.addEventListener('click', closeForm);
 
-submitButton.addEventListener('click',(e) => {
+submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     displayLibrary();
     closeForm();
-    bookForm.reset();
 });
