@@ -9,7 +9,7 @@
     --secondary-light: #e2e8f0;
     --primary-dark: #0f172a;
     font-family: 'Roboto', sans-serif;
-    font-size: calc(.75em + 0.5vw);
+    font-size: calc(.5em + 0.5vw);
 }
 body {
     background-color: var(--secondary-light);
@@ -30,12 +30,12 @@ body {
     grid-template-rows: auto 1fr;
     justify-content: center;
 }
-#addBookButton {
+#addBookBtn {
     background-color: var(--primary-dark);
     color: var(--primary-light);
-    width: 8rem;
+    width: 10rem;
     height: 3.5rem;
-    font-size: 1rem;
+    font-size: 1.25rem;
     border-radius: 15px;
     border: none;
     justify-self: center;
@@ -63,16 +63,24 @@ body {
 }
 .cardText {
     font-size: 1.5rem;
+    text-align: center;
 }
-.statusBox {
-    background-color: red;
+.statusBtn {
     border: none;
     border-radius: 12.5px;
     width: 15rem;
     height: 2.5rem;
     font-size: 1.25rem;
 }
-.removeBookButton {
+.read {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+}
+.unread {
+    background-color: var(--primary-light);
+    border: 2px solid var(--primary-dark);
+}
+.removeBookBtn {
     background-color: var(--secondary-light);
     border: none;
     border-radius: 12.5px;
@@ -168,7 +176,7 @@ legend {
 #status:checked::after {
     transform: scale(1);
 }
-#submitButton {
+#submitBtn {
     background-color: var(--primary-dark);
     color: var(--primary-light);
     width: 7rem;
