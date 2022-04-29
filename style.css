@@ -9,7 +9,7 @@
     --secondary-light: #e2e8f0;
     --primary-dark: #0f172a;
     font-family: 'Roboto', sans-serif;
-    font-size: calc(.5em + 0.5vw);
+    font-size: clamp(1rem, calc(.5em + 0.5vw), 1.75rem);
 }
 body {
     background-color: var(--secondary-light);
@@ -22,8 +22,19 @@ body {
     padding: 2rem 2rem;
     font-size: 3rem;
     font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
 }
-.main {
+.logo {
+    width: 3rem;
+    height: 3rem;
+    padding: 0 2rem;
+    transition: transform 0.4s ease-in-out;
+}
+.logo:hover {
+    transform: scale(1.2);
+}
+.main { 
     box-shadow: 0 0.5px 0px inset var(--primary-dark);
     padding: 1rem 0;
     display: grid;
@@ -188,10 +199,13 @@ legend {
     cursor: pointer;
 }
 .footer {
-    font-size: 1.25rem;
-    padding: 0.5rem 0;
-    position: fixed;
+    width: 100vw;
+    position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+    background-color: var(--primary-light);
+    box-shadow: 0 0.5px 0px inset var(--primary-dark);
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
 }
