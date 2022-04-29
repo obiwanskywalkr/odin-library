@@ -14,7 +14,7 @@
     </div>
     <div class="main">
         <button id="addBookBtn"><strong>+</strong> add book</button>
-        <div id="libraryContainer"></div>
+        <div id="library"></div>
         <div id="formModal" class="formModal"> 
             <form action="" method="post" id="bookForm">
                 <fieldset>
@@ -28,9 +28,9 @@
                       <div class="textbox">
                           <input type="number" name="page_count" class="textbox" id="pages" placeholder="Pages" min="1" max="5000">
                       </div>
-                      <div class="checkbox-container">
-                          <label for="status">Have you read it?</label>
-                          <input type="checkbox" name="status" id="status">
+                      <div class="checkbox">
+                          <label for="isRead">Have you read it?</label>
+                          <input type="checkbox" name="isRead" id="isRead">
                       </div>
                       <button id="submitBtn">Submit</button>
                 </fieldset>

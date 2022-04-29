@@ -1,18 +1,18 @@
 let myLibrary = [];
 
 class Book {
-    constructor(title, author, pages, status) {
+    constructor(title, author, pages, isRead) {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.status = status;
+        this.isRead = isRead;
         this.index = myLibrary.length;
     }
     displayInfo() {
-        return (`${this.title} by ${this.author}, ${this.pages} pages, ${this.status}`);
+        return (`${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead}`);
     }
     toggleReadStatus() {
-        return (this.status ? (this.status = false) : (this.status = true));
+        return (this.isRead ? (this.isRead = false) : (this.isRead = true));
     }
 }
 
@@ -20,12 +20,12 @@ function addBookToLibrary() {
     let title = bookForm.title.value;
     let author = bookForm.author.value;
     let pages = bookForm.pages.value;
-    let status = bookForm.status.checked;
+    let isRead = bookForm.isRead.checked;
     
-    myLibrary.push(new Book(title, author, pages, status));
+    myLibrary.push(new Book(title, author, pages, isRead));
 }
 
-const libraryContainer = document.getElementById('libraryContainer');
+const libraryContainer = document.getElementById('library');
 
 function displayLibrary() {
     libraryContainer.innerHTML = '';
@@ -58,28 +58,26 @@ function createBookCard(book) {
     card.appendChild(pagesDiv);
 
     statusBtn.classList.add('statusBtn');
-    if (book.status == false) {
+    if (book.isRead == false) {
         statusBtn.classList.add('unread');
         statusBtn.textContent = 'Unread';
-    } else if (book.status == true) {
+    } else if (book.isRead == true) {
         statusBtn.classList.add('read');
         statusBtn.textContent = 'Read';
     }
-    card.appendChild(statusBtn);
-   
-    removeBookBtn.classList.add('removeBookBtn');
-    removeBookBtn.textContent = 'Remove Book'
-    card.appendChild(removeBookBtn);
-
     statusBtn.addEventListener('click', () => {
         book.toggleReadStatus();
         displayLibrary();
     });  
-
+    card.appendChild(statusBtn);
+   
+    removeBookBtn.classList.add('removeBookBtn');
+    removeBookBtn.textContent = 'Remove Book';    
     removeBookBtn.addEventListener('click', () => {
         myLibrary.splice(myLibrary.indexOf(book), 1);
         displayLibrary();
     }); 
+    card.appendChild(removeBookBtn);
 
     libraryContainer.appendChild(card);
 }

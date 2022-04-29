@@ -43,16 +43,16 @@ body {
 }
 #addBookBtn {
     background-color: var(--primary-dark);
-    color: var(--primary-light);
     width: 10rem;
     height: 3.5rem;
-    font-size: 1.25rem;
     border-radius: 15px;
     border: none;
+    color: var(--primary-light);
+    font-size: 1.25rem;
     justify-self: center;
     cursor: pointer;
 }
-#libraryContainer {
+#library {
     width: 80vw;
     padding: 2rem 0rem;
     display: grid;
@@ -77,10 +77,10 @@ body {
     text-align: center;
 }
 .statusBtn {
-    border: none;
-    border-radius: 12.5px;
     width: 15rem;
     height: 2.5rem;
+    border: none;
+    border-radius: 12.5px;
     font-size: 1.25rem;
 }
 .read {
@@ -93,10 +93,10 @@ body {
 }
 .removeBookBtn {
     background-color: var(--secondary-light);
-    border: none;
-    border-radius: 12.5px;
     width: 15rem;
     height: 2.5rem;
+    border: none;
+    border-radius: 12.5px;
     font-size: 1.25rem;
 }
 .formModal {
@@ -114,11 +114,11 @@ body {
 }
 .formOverlay {
     background-color: rgba(15,23,42, 0.5);
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     display: none;
     cursor: pointer;
 }
@@ -140,9 +140,9 @@ legend {
     text-align: center;
 }
 .textbox {
-    border-radius: 7.5px;
-    border: none;
     outline: none;
+    border: none;
+    border-radius: 7.5px;
     font-size: 1.25rem;
     height: 2.5rem;
     width: 25rem;
@@ -150,17 +150,17 @@ legend {
 .textbox > input {
     padding-left: 1rem;
 }
-.checkbox-container {
+.checkbox {
     display: grid;
     grid-template-columns: auto 1rem;
     gap: .75rem;
     align-items: center;
 }
-.checkbox-container > label {
+.checkbox > label {
     font-size: 1.25rem;
     cursor: pointer;
-    }
-#status {
+}
+#isRead {
     -webkit-appearance: none;
     appearance: none;
     background-color: #FFFFFF;
@@ -174,7 +174,7 @@ legend {
     place-content: center;
     cursor: pointer;
 }
-#status::after {
+#isRead::after {
     content: "";
     width: 0.65rem;
     height: 0.65rem;
@@ -184,28 +184,17 @@ legend {
     box-shadow: inset 1rem 1rem var(--primary-dark);
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
-#status:checked::after {
+#isRead:checked::after {
     transform: scale(1);
 }
 #submitBtn {
     background-color: var(--primary-dark);
-    color: var(--primary-light);
     width: 7rem;
     height: 3rem;
-    font-size: 1rem;
     border-radius: 15px;
     border: none;
+    color: var(--primary-light);
+    font-size: 1rem;
     justify-self: center;
     cursor: pointer;
-}
-.footer {
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
-    background-color: var(--primary-light);
-    box-shadow: 0 0.5px 0px inset var(--primary-dark);
-    padding: 0.5rem 0;
-    font-size: 1.25rem;
-    display: flex;
-    justify-content: center;
 }
