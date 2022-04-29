@@ -97,6 +97,7 @@ function closeForm() {
 }
 
 function displayForm() {
+    bookForm.title.focus();
     formOverlay.classList.add('displayOverlay');
     formModal.classList.add('displayForm');
 }
