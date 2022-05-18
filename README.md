@@ -1,4 +1,4 @@
-# odin-library
+# Library
 
 A simple library applet built using HTML, CSS, and JavaScript to practice with objects and code organization.
 
